@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Contact</title>
+
+<style>
+body{
+margin:0;
+padding:0;
+font-family:Arial;
+background: linear-gradient(135deg, #667eea, #764ba2);
+color:white;
+display:flex;
+justify-content:center;
+align-items:center;
+height:100vh;
+}
+
+.container{
+background: rgba(255,255,255,0.1);
+padding:30px;
+border-radius:20px;
+width:80%;
+box-shadow:0 0 20px rgba(0,0,0,0.3);
+backdrop-filter: blur(10px);
+text-align:center;
+}
+
+.navbar {
+position: fixed;
+top: 10px;
+left: 10px;
+background: rgba(255,255,255,0.1);
+padding: 10px 15px;
+border-radius: 15px;
+backdrop-filter: blur(10px);
+}
+
+.navbar button {
+margin: 5px;
+padding: 8px 15px;
+border: none;
+border-radius: 10px;
+background: rgba(255,255,255,0.2);
+color: white;
+cursor: pointer;
+}
+
+/* form */
+input, textarea{
+width:80%;
+padding:10px;
+margin:10px;
+border-radius:10px;
+border:none;
+outline:none;
+}
+
+button.submit{
+background: #ff512f;
+color:white;
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="navbar">
+<button onclick="goHome()">Home</button>
+<button onclick="goAbout()">About</button>
+<button onclick="goContact()">Contact</button>
+</div>
+
+<div class="container">
+<h1>Contact Me</h1>
+
+<input type="text" placeholder="Enter your name"><br>
+<input type="email" placeholder="Enter your email"><br>
+<textarea placeholder="Your message"></textarea><br>
+
+<button class="submit" onclick="submitForm()">Send</button>
+
+</div>
+
+<script>
+function goHome(){
+window.location.href="home.html";
+}
+
+function goAbout(){
+window.location.href="about.html";
+}
+
+function goContact(){
+window.location.href="contact.html";
+}
+
+function submitForm(){
+alert("Message Sent ✅");
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Home Page</title>
+
+<style>
+body{
+margin:0;
+padding:0;
+font-family:Arial;
+background: linear-gradient(135deg, #667eea, #764ba2);
+color:white;
+
+display:flex;
+justify-content:center;
+align-items:center;
+height:100vh;
+}
+
+/* Glass UI */
+.container{
+margin-top:50px;
+background: rgba(255,255,255,0.1);
+padding:30px;
+border-radius:20px;
+width:80%;
+margin-left:auto;
+margin-right:auto;
+box-shadow:0 0 20px rgba(0,0,0,0.3);
+backdrop-filter: blur(10px);
+
+
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+}
+
+h1, h2{
+margin:10px 0;
+}
+
+/* Buttons */
+button{
+padding:12px 25px;
+border:none;
+border-radius:25px;
+cursor:pointer;
+margin:10px;
+background: linear-gradient(45deg, #ff512f, #dd2476);
+color:white;
+font-size:16px;
+transition:0.3s;
+}
+
+button:hover{
+transform:scale(1.1);
+}
+
+/* Image */
+img{
+width:300px;
+height:200px;
+border-radius:15px;
+margin-top:20px;
+}
+
+/* Dark mode */
+.dark{
+background:#121212;
+color:white;
+}
+
+.navbar {
+  position: fixed;
+  top: 10px;
+  left: 10px:
+  Z - index: 1000px;
+  background: rgba(255,255,255,0.1);
+  padding: 10px 15px;
+  border-radius: 15px;
+  backdrop-filter: blur(10px);
+}
+
+.navbar button {
+  margin: 5px;
+  padding: 8px 15px;
+  border: none;
+  border-radius: rgba(255,255,255,0.2);
+  color: white;
+  text-shadow: 0 0 5px black;
+
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+
+  min-width: 80px;
+}
+
+.navbar button:hover {
+  background: white;
+  color: black;
+  transform: scale(1.1);
+}
+
+</style>
+
+
+</head>
+
+<body id="body">
+
+<div class="navbar">
+<button onclick="goHome()">Home</button>
+<button onclick="goAbout()">About</button>
+<button onclick="goContact()">Contact</button>
+</div>
+
+<div class="container">
+
+<h1>Welcome, <span id="name"></span></h1>
+
+<h2 id="clock"></h2>
+
+<img id="slider" src="photo1.jpg">
+
+<br><br>
+
+<button onclick="darkMode()">🌙 Dark Mode</button>
+<button onclick="logout()">Logout</button>
+
+<marquee>🔥 Welcome to my website 🔥</marquee>
+
+</div>
+
+<script>
+
+// 🔐 Login check
+if(localStorage.getItem("login")!="true"){
+window.location.href="test.html";
+}
+
+// 👤 Username show
+document.getElementById("name").innerText = localStorage.getItem("user");
+
+// ⏰ Clock
+setInterval(function(){
+let time = new Date().toLocaleTimeString();
+document.getElementById("clock").innerText = time;
+},1000);
+
+// 🖼️ Slider
+let images=["photo1.jpg","photo2.jpg","photo3.jpg"];
+let i=0;
+
+setInterval(function(){
+i=(i+1)%images.length;
+document.getElementById("slider").src=images[i];
+},2000);
+
+// 🌙 Dark Mode
+function darkMode(){
+document.getElementById("body").classList.toggle("dark");
+}
+
+// 🚪 Logout
+function logout(){
+localStorage.removeItem("login");
+window.location.href="test.html";
+}
+
+function goHome(){
+  window.location.href="Home.html";
+}
+
+function goAbout(){
+  window.location.href="About.html";
+}
+
+function goContact(){
+  window.location.href="Contact.html";
+}
+
+</script>
+
+</body>
+</html>

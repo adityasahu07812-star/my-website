@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>Login Page</title>
+
+<style>
+body{
+text-align:center;
+background-color:#e0f7fa;
+transition:0.5s;
+font-family:Arial;
+}
+
+.dark{
+background-color:#121212;
+color:white;
+}
+
+.container{
+margin-top:50px;
+}
+
+input{
+padding:10px;
+border-radius:10px;
+border:1px solid gray;
+}
+
+button{
+padding:10px 20px;
+border:none;
+border-radius:20px;
+cursor:pointer;
+margin:5px;
+background-color:#007BFF;
+color:white;
+}
+
+button:hover{
+background-color:#0056b3;
+}
+
+img{
+border-radius:50%;
+box-shadow:0 0 10px gray;
+}
+</style>
+
+</head>
+
+<body id="body">
+
+<marquee>🔥 Welcome to Aditya Sahu Website 🔥</marquee>
+
+<div class="container">
+
+<h1>Aditya Sahu</h1>
+
+<h2>Login</h2>
+
+<input type="text" id="username" placeholder="Username"><br><br>
+
+<input type="password" id="password" placeholder="Password"><br><br>
+
+<img id="slider" src="photo1.jpg" width="200"><br><br>
+
+<button onclick="login()">Login</button>
+<button onclick="toggleDark()">🌙 Dark Mode</button>
+
+<h2 id="clock"></h2>
+
+</div>
+
+<script>
+
+// LOGIN
+function login(){
+var user=document.getElementById("username").value;
+var pass=document.getElementById("password").value;
+
+if(user=="admin" && pass=="1234"){
+localStorage.setItem("login","true");
+window.location.href="home.html";
+}else{
+alert("Wrong Username or Password");
+}
+}
+
+// DARK MODE
+function toggleDark(){
+document.getElementById("body").classList.toggle("dark");
+}
+
+// CLOCK
+function showTime(){
+var time=new Date();
+document.getElementById("clock").innerHTML=time.toLocaleTimeString();
+}
+setInterval(showTime,1000);
+
+// SLIDER
+var pics=["photo1.jpg","photo2.jpg","photo3.jpg"];
+var i=0;
+
+function slide(){
+i++;
+if(i==pics.length){i=0;}
+document.getElementById("slider").src=pics[i];
+}
+setInterval(slide,2000);
+
+</script>
+
+</body>
+</html>
